@@ -124,3 +124,43 @@ img{
     text-align:center;
     box-shadow: 2px 2px 3px #999;  
 }
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    width: 60%;
+    margin-top: 20px; /* 调整上下间距 */
+  }
+  
+  .image {
+    flex: 1;
+    display: flex;
+    justify-content: center; /* 图片水平居中 */
+    align-items: center; /* 图片垂直居中 */
+  }
+  
+  .image img {
+    max-width: 100%; /* 图片最大宽度为容器的宽度 */
+    max-height: 100%; /* 图片最大高度为容器的高度 */
+  }
+  
+  .contact {
+    flex: 1;
+    margin-left: 20px; /* 调整左右间距 */
+  }
+
+  p {
+    color: rgb(49, 117, 145); 
+  }
+  
+  .bold-and-large {
+    font-weight: bold; /* 设置字体加粗 */
+    font-size: 20px; /* 设置字体大小为20像素 */
+  }
