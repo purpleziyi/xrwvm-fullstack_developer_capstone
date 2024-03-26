@@ -13,6 +13,8 @@ import json
 from django.views.decorators.csrf import csrf_exempt
 from .populate import initiate
 
+from .models import CarMake, CarModel
+
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
@@ -143,3 +145,14 @@ def add_review(request, dealer_id):
             else:
                 context["message"] = "Review was submited"
         return redirect("djangoapp:dealer_details", dealer_id=dealer_id)
+
+def get_cars(request):
+    count = CarMake.objects.filter().count()
+    print(count)
+    if(count == 0):
+        initiate()
+    car_models = CarModel.objects.select_related('car_make')
+    cars = []
+    for car_model in car_models:
+        cars.append({"CarModel": car_model.name, "CarMake": car_model.car_make.name})
+    return JsonResponse({"CarModels":cars})
